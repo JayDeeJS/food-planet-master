@@ -45,9 +45,10 @@ const FirstProductsPage = () => {
                                 <FirstProducts
                                     id={item.id}
                                     key={item.id}
-                                    img={item.firstProductImg}
-                                    desc={item.firstProductDesc}
-                                    price={item.firstProductPrice}
+                                    img={item.img}
+                                    title={item.title}
+                                    desc={item.desc}
+                                    price={item.price}
                                 />
                             )
                         })

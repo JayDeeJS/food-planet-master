@@ -12,9 +12,6 @@ export const Counter = () => {
                 <span>{count}</span>
                 <button className={styles.btnCount} onClick={() => setCount(prevState => prevState + 1)}>+</button>
             </div>
-            <div>
-                <button className={styles.btnCart} >В КОРЗИНУ</button>
-            </div>
         </>
     )
 }

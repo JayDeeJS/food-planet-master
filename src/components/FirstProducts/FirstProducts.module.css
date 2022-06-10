@@ -33,3 +33,13 @@
 .smallFont{
     font-size: 14px;
 }
+.btnCart{
+    border: none;
+    border-radius: 20px;
+    background-color: #FF583E;
+    color: white;
+    width: 170px;
+    height: 38px;
+    cursor: pointer;
+    font-weight: bold;
+}
