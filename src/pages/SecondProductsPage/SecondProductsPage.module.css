@@ -1,0 +1,77 @@
+.viewport{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 99.8%;
+}
+.sectionOne{
+    width: 75%;
+    display: flex;
+    justify-content: center;
+}
+.navBar{
+    width: 99.8%;
+    display: flex;
+    align-items: center;
+}
+.navText{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 26px;
+    color: #254F4C;
+}
+.navDivider{
+    width: 99%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+.navBarContent{
+    width: 75%;
+}
+.navMenu{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+.navBar nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+.sortNav{
+    width: 71%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 40px;
+}
+.sortText{
+    margin-right: 10px;
+}
+.menuItems{
+    width: 75%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.smallFont{
+    font-size: 14px;
+    text-align: center;
+    padding-bottom: 9px;
+}
+.extendBtn{
+    border: 2px solid #FF583E;
+    border-radius: 20px;
+    width: 170px;
+    height: 40px;
+    background-color: floralwhite;
+    color: #FF583E;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+.MenuLineup{
+    width: 74%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+}

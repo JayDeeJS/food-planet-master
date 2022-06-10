@@ -1,0 +1,35 @@
+.newProduct{
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    height: 330px;
+    background-color: #2B4241;
+}
+.newProduct div h4, p{
+    margin: 0;
+    padding-top: 10px;
+    text-align: center;
+    color: white;
+}
+.newProductSize{
+    width: 117px;
+    height: 85px;
+    position: relative;
+    bottom: 20px;
+    border-radius: 10px;
+}
+.newProductDesc{
+    width: 83%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.newProductDesc div span{
+    color: white;
+}
+.smallFont{
+    font-size: 14px;
+}

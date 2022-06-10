@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.navAligner1{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.navAligner2{
+    display: flex;
+    justify-content: center;
+    width: 95%;
+}
+
+.navMenu{
+    width: 94%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+}
+
+.navContent{
+    width: 90%;
+}
+
+.navLogo{
+    width: 200px;
+    height: 36px;
+}
+
+.navImg1{
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.navImg2{
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+ul a{
+    color: black;
+    text-decoration: none;
+    display: flex;
+}
+
+a[class="active"] {
+    color: orangered;
+}
