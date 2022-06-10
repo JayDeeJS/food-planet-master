@@ -4,44 +4,20 @@
     flex-direction: column;
     align-items: center;
 }
-
 .whyUsFrame{
     width: 74%;
     display: flex;
     justify-content: flex-start;
     margin-bottom: 30px;
 }
-
 .whyUsFont{
     color: #254F4C;
     font-size: 22px;
     font-weight: bold;
 }
-
 .reasonsWhy{
     width: 74%;
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 30px;
-}
-
-.outlineBrd{
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.titleFont{
-    color: #254F4C;
-    font-size: 20px;
-    font-weight: bold;
-    padding-top: 7px;
-    margin: 0;
-}
-
-.textFont{
-    text-align: center;
-    color: black;
-    font-size: 15px;
 }

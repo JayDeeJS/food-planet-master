@@ -3,13 +3,13 @@
     flex-direction: column;
     align-items: center;
     width: 99.8%;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 .sectionOne{
     width: 75%;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 .sectionTwo{
     width: 75%;

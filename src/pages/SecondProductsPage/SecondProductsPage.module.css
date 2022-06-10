@@ -8,6 +8,7 @@
     width: 75%;
     display: flex;
     justify-content: center;
+    margin-bottom: 15px;
 }
 .navBar{
     width: 99.8%;
@@ -44,7 +45,7 @@
     width: 71%;
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 .sortText{
     margin-right: 10px;

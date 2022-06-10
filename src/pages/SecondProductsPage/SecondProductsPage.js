@@ -51,6 +51,7 @@ const SecondProductsPage = () => {
                                 id={item.id}
                                 key={item.id}
                                 img={item.secondProductImg}
+                                title={item.secondProductTitle}
                                 desc={item.secondProductDesc}
                                 price={item.secondProductPrice}
                             />

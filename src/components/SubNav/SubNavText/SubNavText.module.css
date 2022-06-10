@@ -1,0 +1,11 @@
+.boldText{
+    font-size: 28px;
+    font-weight: 900;
+    color: #254F4C;
+    text-align: left;
+}
+.darkColor{
+    color: #254F4C;
+    text-align: left;
+    padding-bottom: 15px;
+}

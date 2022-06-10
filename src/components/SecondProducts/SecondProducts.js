@@ -7,7 +7,7 @@ const SecondProducts = (props) => {
         <div className={styles.singleItem}>
             <div className={styles.singleItemContent}>
                 <img className={styles.singleItemSize} src={props.img} alt=""/>
-                <h4 className={styles.properSpacing}>Мексиканская</h4>
+                <h4 className={styles.properSpacing}>{props.title}</h4>
                 <span className={styles.textAlign}>{props.desc}</span>
                 <h4 className={styles.properSpacing}>{props.price}</h4>
                 <div>

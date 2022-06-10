@@ -1,20 +1,52 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "./SubNavPage.module.css";
-import index from "../../constants";
-import images from "../../img";
+import {BASE_URL} from "../../constants";
+import SubNavText from "../../components/SubNav/SubNavText/SubNavText";
+import SubNavImg from "../../components/SubNav/SubNavImg/SubNavImg";
 
 const SubNavPage = () => {
+    const [subNav, setSubNav] = useState([]);
+
+    const getSubNav = () => {
+        const url = BASE_URL + '/subNav';
+        fetch(url)
+            .then(response => response.json())
+            .then(data => setSubNav(data));
+    }
+
+    useEffect(getSubNav, []);
+
     return (
         <div className={styles.subNav}>
             <div className={styles.subNavLeft}>
                 <div className={styles.subNavText}>
-                    <p className={styles.boldText}>{index.subNavTitle}</p>
-                    <p className={styles.darkColor}>{index.subNavDesc}</p>
+                    {
+                        subNav.map((item) => {
+                            return (
+                                <SubNavText
+                                    id={item.id}
+                                    key={item.id}
+                                    title={item.subNavTitle}
+                                    desc={item.subNavDesc}
+                                />
+                            )
+                        })
+                    }
                     <button className={styles.menuBtn}>ПЕРЕЙТИ В МЕНЮ ➤</button>
                 </div>
             </div>
             <div className={styles.subNavRight}>
-                <img className={styles.subNavImg} src={images.subNavLogo}/>
+                {
+                    subNav.map((item) => {
+                        return (
+                            <SubNavImg
+                                id={item.id}
+                                key={item.id}
+                                img={item.subNavImg}
+                            />
+                        )
+                    })
+                }
             </div>
         </div>
     );

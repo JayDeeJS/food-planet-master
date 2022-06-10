@@ -31,7 +31,7 @@ const NavPage = () => {
                                 </div>
                                 <li>+996500405988</li>
                             </NavLink>
-                            <NavLink to="cart">
+                            <NavLink to="/cart">
                                 <div className={styles.navImg2}>
                                     <img src={images.cartLogo}/>
                                 </div>
