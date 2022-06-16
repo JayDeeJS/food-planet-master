@@ -4,6 +4,7 @@ import {Counter} from "../Counter/Counter";
 import {BASE_URL} from "../../constants";
 
 const FirstProducts = (props) => {
+
     const addCart = () => {
         const buyProduct = () => {
             const url = BASE_URL + "/cart";
@@ -24,7 +25,7 @@ const FirstProducts = (props) => {
             }
             fetch(url, options)
                 .then(response => response.json())
-                .then(data => console.log(data));
+                .then(data => data);
         }
         buyProduct();
 

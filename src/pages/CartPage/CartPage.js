@@ -1,37 +1,105 @@
 import React, {useState, useEffect} from 'react';
 import styles from "./CartPage.module.css";
-import {BASE_URL} from "../../constants";
-import Cart from "../../components/Cart/Cart";
 
 const CartPage = () => {
-    const [cart, setCart] = useState([]);
 
-    const getCart = () => {
-        const url = BASE_URL + '/cart';
+    const [productsFromStorage, setProductsFromStorage] = useState([]);
 
-        fetch(url)
-            .then(response => response.json())
-            .then(data => setCart(data));
+    const getStorageProducts = () => {
+        let storageData = JSON.parse(localStorage.getItem('cart'));
+        storageData = Object.values(storageData);
+        setProductsFromStorage(storageData);
     }
 
-    useEffect(getCart, []);
+    const deleteProduct = (product) => {
+        let productFromStorage = JSON.parse(localStorage.getItem('cart'));
+        delete productFromStorage[product.id];
+        localStorage.setItem('cart', JSON.stringify(productFromStorage));
+        getStorageProducts();
+    }
+
+    useEffect(getStorageProducts, []);
+
+    const increaseQty = (product) => {
+        if (!product.quantity){
+            product.quantity = 2;
+            let dblPrice = product.price + product.price;
+        } else{
+            let count = product.quantity;
+            product.quantity = ++count;
+            let totalPrice = product.price * product.quantity;
+        }
+        let productsFromStorage = JSON.parse(localStorage.getItem('cart'));
+        productsFromStorage[product.id] = product;
+        localStorage.setItem('cart', JSON.stringify(productsFromStorage));
+        getStorageProducts();
+    }
+
+    const decreaseQty = (product) => {
+        if (!product.quantity){
+            deleteProduct(product)
+        } else{
+            let count = product.quantity;
+            product.quantity = --count;
+            if (product.quantity === 0){
+                deleteProduct(product);
+                return;
+            }
+        }
+        let productsFromStorage = JSON.parse(localStorage.getItem('cart'));
+        productsFromStorage[product.id] = product;
+        localStorage.setItem('cart', JSON.stringify(productsFromStorage));
+        getStorageProducts();
+    }
 
     return (
         <div className={styles.body}>
             <h1>Корзина</h1>
-            <h3>Продукты в корзине</h3>
             <div className={styles.cart}>
                 {
-                    cart.map((item) => {
+                    productsFromStorage.map((product) => {
                         return (
-                            <Cart
-                                id={item.id}
-                                key={item.id}
-                                img={item.img}
-                                title={item.title}
-                                desc={item.desc}
-                                price={item.price}
-                            />
+                            <div key={product.id} className={styles.cartRow}>
+                                <span
+                                    onClick={() => {
+                                        deleteProduct(product);
+                                    }}
+                                    className={styles.productDelete}>
+                                    &#10008;
+                                </span>
+                                <img className={styles.productImg} src={product.img} alt=""/>
+                                <div className={styles.cartBGCol}>
+                                    <h4 className={styles.lessSpacing}>{product.title}</h4>
+                                    <p className={styles.productText}>{product.desc}</p>
+                                </div>
+                                <div className={styles.cartCol}>
+                                    <div className={styles.cartCounter}>
+                                        <button onClick={()=>{
+                                            decreaseQty(product)
+                                        }}
+                                        >-</button>
+                                        <span>{product.quantity
+                                            ? product.quantity
+                                            : 1}
+                                        </span>
+                                        <button onClick={()=>{
+                                            increaseQty(product)
+                                        }}
+                                        >+</button>
+                                    </div>
+                                </div>
+                                <div className={styles.cartCol}>
+                                    <h3>Скидка</h3>
+                                    <h3 className={styles.discount}>0%</h3>
+                                </div>
+                                <div className={styles.cartCol}>
+                                    <h3>Цена</h3>
+                                    <h3 className={styles.productText}>{!product.quantity
+                                        ? product.price
+                                        : product.price * product.quantity}
+                                    </h3>
+                                </div>
+                            </div>
                         )
                     })
                 }
