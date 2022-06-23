@@ -32,6 +32,12 @@ const CartPage = () => {
         parseAndSetProducts(product);
     }
 
+    /*const totalPrice = (product) => {
+        if (!product.price){
+
+        }
+    }*/
+
     let totalCartPrice = 0;
     productsFromStorage.map((product) => {
         return (
@@ -42,12 +48,12 @@ const CartPage = () => {
     })
 
     const decreaseQty = (product) => {
-        if (!product.quantity) {
+        if (!product.price) {
             deleteProduct(product)
         } else {
             let count = product.quantity;
             product.quantity = --count;
-            if (product.quantity === 0) {
+            if (!product.quantity) {
                 deleteProduct(product);
                 return;
             }

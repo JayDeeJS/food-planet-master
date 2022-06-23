@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./FooterPage.module.css";
-import images from "../../img";
+import images from "../../media";
 import {NavLink} from "react-router-dom";
 
 const FooterPage = () => {

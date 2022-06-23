@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./FeedbackPage.module.css";
-import images from "../../img";
+import images from "../../media";
 import index from "../../constants";
 
 const FeedbackCommentPage = () => {

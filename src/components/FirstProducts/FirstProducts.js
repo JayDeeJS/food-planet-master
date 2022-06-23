@@ -1,24 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from "./FirstProducts.module.css";
 import {Counter} from "../Counter/Counter";
 import {BASE_URL} from "../../constants";
-import classNames from "classnames";
+import CartBtn from "../CartBtn/CartBtn";
 
 const FirstProducts = (props) => {
-
-    /*const changeBtnUI = () => {
-        let classNames = require('classnames');
-        class Button extends React.Component{
-            isPressed;
-            render() {
-                let btnClass = classNames({
-                    btn: true,
-                    'btn-pressed': this.state.isPressed
-                })
-                return <button className={btnClass}>press</button>
-            }
-        }
-    }*/
 
     const addCart = () => {
         const buyProduct = () => {
@@ -68,10 +54,9 @@ const FirstProducts = (props) => {
                     <Counter/>
                 </div>
                 <div>
-                    <button
-                        className="btnCart"
-                        onClick={() => addCart()}>'В КОРЗИНУ'
-                    </button>
+                    <CartBtn
+                        addCart={addCart}
+                    />
                 </div>
             </div>
         </div>

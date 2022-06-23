@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styles from "./FirstProductsPage.module.css";
 import {BASE_URL} from "../../constants";
-import {NavLink} from "react-router-dom";
 import FirstProducts from "../../components/FirstProducts/FirstProducts";
 
 const FirstProductsPage = () => {

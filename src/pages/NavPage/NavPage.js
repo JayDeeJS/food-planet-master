@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {NavLink} from "react-router-dom";
 import styles from "./NavPage.module.css";
-import images from "../../img";
+import images from "../../media";
 
 const NavPage = () => {
 

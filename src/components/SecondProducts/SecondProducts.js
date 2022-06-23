@@ -2,8 +2,10 @@ import React from 'react';
 import styles from "./SecondProducts.module.css";
 import {Counter} from "../Counter/Counter";
 import {BASE_URL} from "../../constants";
+import CartBtn from "../CartBtn/CartBtn";
 
 const SecondProducts = (props) => {
+
     const addCart = () => {
         const buyProduct = () => {
             const url = BASE_URL + "/cart";
@@ -52,11 +54,9 @@ const SecondProducts = (props) => {
                     <Counter/>
                 </div>
                 <div>
-                    <button
-                        onClick={addCart}
-                        className={styles.btnCart}>
-                        В КОРЗИНУ
-                    </button>
+                    <CartBtn
+                        addCart={addCart}
+                    />
                 </div>
             </div>
         </div>
