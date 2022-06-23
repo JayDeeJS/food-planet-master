@@ -1,27 +1,42 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from "./FirstProducts.module.css";
 import {Counter} from "../Counter/Counter";
 import {BASE_URL} from "../../constants";
+import classNames from "classnames";
 
 const FirstProducts = (props) => {
+
+    /*const changeBtnUI = () => {
+        let classNames = require('classnames');
+        class Button extends React.Component{
+            isPressed;
+            render() {
+                let btnClass = classNames({
+                    btn: true,
+                    'btn-pressed': this.state.isPressed
+                })
+                return <button className={btnClass}>press</button>
+            }
+        }
+    }*/
 
     const addCart = () => {
         const buyProduct = () => {
             const url = BASE_URL + "/cart";
 
             const obj = {
-                "img":props.img,
-                "desc":props.desc,
-                "price":props.price,
-                "title":props.title
+                "img": props.img,
+                "desc": props.desc,
+                "price": props.price,
+                "title": props.title
             }
 
             const options = {
-                method:"POST",
-                headers:{
-                    "Content-type":"application/json"
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
                 },
-                body:JSON.stringify(obj)
+                body: JSON.stringify(obj)
             }
             fetch(url, options)
                 .then(response => response.json())
@@ -32,7 +47,7 @@ const FirstProducts = (props) => {
         let productsFromLocalStorage = {};
         const product = {};
 
-        if (localStorage.getItem('cart')){
+        if (localStorage.getItem('cart')) {
             productsFromLocalStorage = JSON.parse(localStorage.getItem('cart'));
         }
 
@@ -54,9 +69,8 @@ const FirstProducts = (props) => {
                 </div>
                 <div>
                     <button
-                        onClick={addCart}
-                        className={styles.btnCart}>
-                        В КОРЗИНУ
+                        className="btnCart"
+                        onClick={() => addCart()}>'В КОРЗИНУ'
                     </button>
                 </div>
             </div>

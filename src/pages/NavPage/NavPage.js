@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {NavLink} from "react-router-dom";
 import styles from "./NavPage.module.css";
 import images from "../../img";
 
 const NavPage = () => {
+
+    /*const [products, setProducts] = useState([]);
+
+    const getStorageProducts = () => {
+        let storageData = JSON.parse(localStorage.getItem('cart'));
+        storageData = Object.values(storageData);
+        setProducts(storageData);
+    }
+
+    useEffect(getStorageProducts, []);*/
+
     return (
         <>
             <div className={styles.navAligner1}>
@@ -35,7 +46,7 @@ const NavPage = () => {
                                 <div className={styles.navImg2}>
                                     <img src={images.cartLogo}/>
                                 </div>
-                                <li>1</li>
+                                <li>{}</li>
                             </NavLink>
                         </ul>
                     </nav>

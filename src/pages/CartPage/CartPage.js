@@ -21,31 +21,41 @@ const CartPage = () => {
     useEffect(getStorageProducts, []);
 
     const increaseQty = (product) => {
-        if (!product.quantity){
+        if (!product.quantity) {
             product.quantity = 2;
             let dblPrice = product.price + product.price;
-        } else{
+        } else {
             let count = product.quantity;
             product.quantity = ++count;
             let totalPrice = product.price * product.quantity;
         }
-        let productsFromStorage = JSON.parse(localStorage.getItem('cart'));
-        productsFromStorage[product.id] = product;
-        localStorage.setItem('cart', JSON.stringify(productsFromStorage));
-        getStorageProducts();
+        parseAndSetProducts(product);
     }
 
+    let totalCartPrice = 0;
+    productsFromStorage.map((product) => {
+        return (
+            !product.quantity
+                ? product.price
+                : totalCartPrice += product.price * product.quantity
+        )
+    })
+
     const decreaseQty = (product) => {
-        if (!product.quantity){
+        if (!product.quantity) {
             deleteProduct(product)
-        } else{
+        } else {
             let count = product.quantity;
             product.quantity = --count;
-            if (product.quantity === 0){
+            if (product.quantity === 0) {
                 deleteProduct(product);
                 return;
             }
         }
+        parseAndSetProducts(product);
+    }
+
+    const parseAndSetProducts = (product) => {
         let productsFromStorage = JSON.parse(localStorage.getItem('cart'));
         productsFromStorage[product.id] = product;
         localStorage.setItem('cart', JSON.stringify(productsFromStorage));
@@ -74,18 +84,20 @@ const CartPage = () => {
                                 </div>
                                 <div className={styles.cartCol}>
                                     <div className={styles.cartCounter}>
-                                        <button onClick={()=>{
+                                        <button onClick={() => {
                                             decreaseQty(product)
                                         }}
-                                        >-</button>
+                                        >-
+                                        </button>
                                         <span>{product.quantity
                                             ? product.quantity
                                             : 1}
                                         </span>
-                                        <button onClick={()=>{
+                                        <button onClick={() => {
                                             increaseQty(product)
                                         }}
-                                        >+</button>
+                                        >+
+                                        </button>
                                     </div>
                                 </div>
                                 <div className={styles.cartCol}>
@@ -103,6 +115,10 @@ const CartPage = () => {
                         )
                     })
                 }
+            </div>
+            <div className={styles.cartFooter}>
+                <h3>Общая цена</h3>
+                <span>{totalCartPrice}</span>
             </div>
         </div>
     );

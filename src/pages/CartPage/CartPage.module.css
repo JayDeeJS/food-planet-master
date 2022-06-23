@@ -6,12 +6,12 @@
 }
 .cart{
     width: 75%;
-    border: 1px dotted greenyellow;
     box-shadow: 0 0 5px 5px #6f87d0;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 15px;
+    margin-bottom: 10px;
 }
 .cartRow{
     width: 100%;
@@ -36,6 +36,10 @@
     flex-direction: column;
     align-items: center;
     margin: 20px;
+}
+.cartFooter{
+    width: 75%;
+    border: 1px dotted greenyellow;
 }
 .productImg{
     width: 130px;
