@@ -11,6 +11,13 @@ const CartPage = () => {
         setProductsFromStorage(storageData);
     }
 
+    const parseAndSetProducts = (product) => {
+        let productsFromStorage = JSON.parse(localStorage.getItem('cart'));
+        productsFromStorage[product.id] = product;
+        localStorage.setItem('cart', JSON.stringify(productsFromStorage));
+        getStorageProducts();
+    }
+
     const deleteProduct = (product) => {
         let productFromStorage = JSON.parse(localStorage.getItem('cart'));
         delete productFromStorage[product.id];
@@ -32,21 +39,6 @@ const CartPage = () => {
         parseAndSetProducts(product);
     }
 
-    /*const totalPrice = (product) => {
-        if (!product.price){
-
-        }
-    }*/
-
-    let totalCartPrice = 0;
-    productsFromStorage.map((product) => {
-        return (
-            !product.quantity
-                ? product.price
-                : totalCartPrice += product.price * product.quantity
-        )
-    })
-
     const decreaseQty = (product) => {
         if (!product.price) {
             deleteProduct(product)
@@ -61,12 +53,7 @@ const CartPage = () => {
         parseAndSetProducts(product);
     }
 
-    const parseAndSetProducts = (product) => {
-        let productsFromStorage = JSON.parse(localStorage.getItem('cart'));
-        productsFromStorage[product.id] = product;
-        localStorage.setItem('cart', JSON.stringify(productsFromStorage));
-        getStorageProducts();
-    }
+    let totalCartPrice = 0;
 
     return (
         <div className={styles.body}>

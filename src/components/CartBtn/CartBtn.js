@@ -1,22 +1,45 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "./CartBtn.module.css";
 
 const CartBtn = (props) => {
 
-    const [color, setColor] = useState(false);
+    let [productsFromStorage, setProductsFromStorage] = useState([]);
 
-    const changeUI = () => {
-        setColor(state => !state);
+    const [addBtn, setAddBtn] = useState({
+        title: 'В КОРЗИНУ',
+        style: styles.btnCart
+    });
+
+    const changeAddBtn = () => {
+        setAddBtn({
+            title: <span>&#10004;</span>,
+            style: styles.btnNew
+        })
     }
+
+    const checkProductId = () => {
+
+        let cartData = JSON.parse(localStorage.getItem('cart'));
+        cartData = Object.values(cartData);
+        setProductsFromStorage(cartData);
+
+        let result = cartData.find(item => item.id === props.id);
+        if (result){
+            changeAddBtn();
+        }
+    }
+
+    useEffect(checkProductId, []);
 
     return (
         <>
-            <button style={{backgroundColor: color ? 'green' : '#FF583E'}}
-                onClick={()=> {
-                    changeUI();
+            <button id={props.id}
+                onClick={() => {
+                    changeAddBtn();
+                    checkProductId();
                     props.addCart()
                 }}
-                className={styles.btnCart}>В КОРЗИНУ
+                className={addBtn.style}>{addBtn.title}
             </button>
         </>
     );

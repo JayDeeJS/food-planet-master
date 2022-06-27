@@ -1,13 +1,12 @@
 import React from 'react';
 import styles from "./SecondProducts.module.css";
 import {Counter} from "../Counter/Counter";
-import {BASE_URL} from "../../constants";
 import CartBtn from "../CartBtn/CartBtn";
 
 const SecondProducts = (props) => {
 
     const addCart = () => {
-        const buyProduct = () => {
+        /*const buyProduct = () => {
             const url = BASE_URL + "/cart";
 
             const obj = {
@@ -28,7 +27,7 @@ const SecondProducts = (props) => {
                 .then(response => response.json())
                 .then(data => console.log(data));
         }
-        buyProduct();
+        buyProduct();*/
 
         let productsFromLocalStorage = {};
         const product = {};
@@ -56,6 +55,7 @@ const SecondProducts = (props) => {
                 <div>
                     <CartBtn
                         addCart={addCart}
+                        id={props.id}
                     />
                 </div>
             </div>

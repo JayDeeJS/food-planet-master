@@ -1,16 +1,17 @@
 import React from 'react';
 import styles from "./FirstProducts.module.css";
 import {Counter} from "../Counter/Counter";
-import {BASE_URL} from "../../constants";
 import CartBtn from "../CartBtn/CartBtn";
 
 const FirstProducts = (props) => {
 
     const addCart = () => {
-        const buyProduct = () => {
+
+        /*const buyProduct = () => {
             const url = BASE_URL + "/cart";
 
             const obj = {
+                "id": props.id,
                 "img": props.img,
                 "desc": props.desc,
                 "price": props.price,
@@ -28,7 +29,8 @@ const FirstProducts = (props) => {
                 .then(response => response.json())
                 .then(data => data);
         }
-        buyProduct();
+
+        buyProduct();*/
 
         let productsFromLocalStorage = {};
         const product = {};
@@ -40,6 +42,7 @@ const FirstProducts = (props) => {
         product[props.id] = {
             ...props
         }
+
         localStorage.setItem('cart', JSON.stringify({...productsFromLocalStorage, ...product}));
     }
 
@@ -56,6 +59,7 @@ const FirstProducts = (props) => {
                 <div>
                     <CartBtn
                         addCart={addCart}
+                        id={props.id}
                     />
                 </div>
             </div>

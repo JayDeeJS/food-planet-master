@@ -1,19 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {NavLink} from "react-router-dom";
 import styles from "./NavPage.module.css";
 import images from "../../media";
 
 const NavPage = () => {
-
-    /*const [products, setProducts] = useState([]);
-
-    const getStorageProducts = () => {
-        let storageData = JSON.parse(localStorage.getItem('cart'));
-        storageData = Object.values(storageData);
-        setProducts(storageData);
-    }
-
-    useEffect(getStorageProducts, []);*/
 
     return (
         <>
@@ -22,7 +12,7 @@ const NavPage = () => {
                     <nav className={styles.navContent}>
                         <ul className={styles.navMenu}>
                             <li className={styles.navLogo}>
-                                <img src={images.navLogo}/>
+                                <img src={images.navLogo} alt="nav logo"/>
                             </li>
                             <NavLink to="/">
                                 <li>Главная</li>
@@ -38,13 +28,13 @@ const NavPage = () => {
                             </NavLink>
                             <NavLink to="/phone">
                                 <div className={styles.navImg1}>
-                                    <img src={images.phoneLogo}/>
+                                    <img src={images.phoneLogo} alt="phone logo"/>
                                 </div>
                                 <li>+996500405988</li>
                             </NavLink>
                             <NavLink to="/cart">
                                 <div className={styles.navImg2}>
-                                    <img src={images.cartLogo}/>
+                                    <img src={images.cartLogo} alt="cart logo"/>
                                 </div>
                                 <li>{}</li>
                             </NavLink>
