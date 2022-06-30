@@ -18,7 +18,6 @@ const CartBtn = (props) => {
     }
 
     const checkProductId = () => {
-
         let cartData = JSON.parse(localStorage.getItem('cart'));
         cartData = Object.values(cartData);
         setProductsFromStorage(cartData);

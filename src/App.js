@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import {Routes, Route} from "react-router-dom";
+import {Toaster} from "react-hot-toast";
 import MainPage from "./pages/MainPage/MainPage";
 import NavPage from "./pages/NavPage/NavPage";
 import FooterPage from "./pages/FooterPage/FooterPage";
@@ -15,6 +16,7 @@ function App() {
                 <Route path="/cart" element={<CartPage/>}/>
             </Routes>
             <FooterPage/>
+            <Toaster/>
         </div>
     )
 }

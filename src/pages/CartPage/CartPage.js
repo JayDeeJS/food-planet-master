@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "./CartPage.module.css";
+import toast from "react-hot-toast";
 
 const CartPage = () => {
 
@@ -23,6 +24,17 @@ const CartPage = () => {
         delete productFromStorage[product.id];
         localStorage.setItem('cart', JSON.stringify(productFromStorage));
         getStorageProducts();
+        toast.success(`${product.title} удален(а) из Корзины`, {
+            style: {
+                border: '1px solid #d15f1e',
+                padding: '16px',
+                color: '#d14b1e',
+            },
+            iconTheme: {
+                primary: '#13e23c',
+                secondary: '#e79b44',
+            },
+        });
     }
 
     useEffect(getStorageProducts, []);
@@ -53,7 +65,9 @@ const CartPage = () => {
         parseAndSetProducts(product);
     }
 
-    let totalCartPrice = 0;
+    const calcTotalPrice = productsFromStorage.reduce((price, product) => !product.quantity
+        ? product.price + price
+        : price + (product.quantity * product.price), 0)
 
     return (
         <div className={styles.body}>
@@ -110,8 +124,8 @@ const CartPage = () => {
                 }
             </div>
             <div className={styles.cartFooter}>
-                <h3>Общая цена</h3>
-                <span>{totalCartPrice}</span>
+                <h3>Итоговая цена</h3>
+                <span>{calcTotalPrice}</span>
             </div>
         </div>
     );

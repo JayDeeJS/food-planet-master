@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from "./SecondProducts.module.css";
+import toast from "react-hot-toast";
 import {Counter} from "../Counter/Counter";
 import CartBtn from "../CartBtn/CartBtn";
 
@@ -40,6 +41,17 @@ const SecondProducts = (props) => {
             ...props
         }
         localStorage.setItem('cart', JSON.stringify({...productsFromLocalStorage, ...product}));
+        toast.success(`${props.title} добавлен(а) в Корзину!`, {
+            style: {
+                border: '2px solid #d1db17',
+                padding: '16px',
+                color: '#e66322',
+            },
+            iconTheme: {
+                primary: '#14e040',
+                secondary: '#e7f13b',
+            },
+        });
     }
 
     return (
@@ -56,6 +68,8 @@ const SecondProducts = (props) => {
                     <CartBtn
                         addCart={addCart}
                         id={props.id}
+                        price={props.price}
+                        quantity={props.quantity}
                     />
                 </div>
             </div>

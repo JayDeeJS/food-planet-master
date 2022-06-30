@@ -54,6 +54,7 @@ const SecondProductsPage = () => {
                                 title={item.title}
                                 desc={item.desc}
                                 price={item.price}
+                                quantity={item.quantity}
                             />
                         )
                     })
