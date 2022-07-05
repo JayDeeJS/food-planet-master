@@ -3,6 +3,7 @@ import styles from "./SubNavPage.module.css";
 import {BASE_URL} from "../../constants";
 import SubNavText from "../../components/SubNav/SubNavText/SubNavText";
 import SubNavImg from "../../components/SubNav/SubNavImg/SubNavImg";
+import toast from "react-hot-toast";
 
 const SubNavPage = () => {
     const [subNav, setSubNav] = useState([]);
@@ -10,8 +11,15 @@ const SubNavPage = () => {
     const getSubNav = () => {
         const url = BASE_URL + '/subNav';
         fetch(url)
-            .then(response => response.json())
-            .then(data => setSubNav(data));
+            .then(response => {
+                if (response.status === 200){
+                    return response.json();
+                } else {
+                    throw new Error(response.status);
+                }
+            })
+            .then(data => setSubNav(data))
+            .catch(err => toast.error(`Упс, ошибка: ${err.message} в SubNavPage.js`));
     }
 
     useEffect(getSubNav, []);

@@ -43,3 +43,16 @@
     cursor: pointer;
     font-weight: bold;
 }
+.btnFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btnCount{
+    border: none;
+    background-color: inherit;
+    color: #FF583E;
+    font-size: 22px;
+    cursor: pointer;
+    margin: 5px;
+}

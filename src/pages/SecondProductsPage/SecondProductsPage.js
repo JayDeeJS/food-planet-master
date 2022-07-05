@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import styles from "./SecondProductsPage.module.css";
 import {BASE_URL} from "../../constants";
 import SecondProducts from "../../components/SecondProducts/SecondProducts";
+import toast from "react-hot-toast";
 
 const SecondProductsPage = () => {
     const [secondProducts, setSecondProducts] = useState([]);
@@ -9,8 +10,15 @@ const SecondProductsPage = () => {
     const getSecondProducts = () => {
         const url = BASE_URL + '/secondProducts';
         fetch(url)
-            .then(response => response.json())
-            .then(data => setSecondProducts(data));
+            .then(response => {
+                if (response.status === 200){
+                    return response.json();
+                } else {
+                    throw new Error(response.status);
+                }
+            })
+            .then(data => setSecondProducts(data))
+            .catch(err => toast.error(`Упс, ошибка: ${err.message} в SecondProductsPage.js`));
     }
 
     useEffect(getSecondProducts, []);

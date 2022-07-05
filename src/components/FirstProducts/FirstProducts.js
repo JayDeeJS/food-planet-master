@@ -1,50 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from "./FirstProducts.module.css";
+import {Context} from "../../context/context";
 import toast from "react-hot-toast";
-import {Counter} from "../Counter/Counter";
 import CartBtn from "../CartBtn/CartBtn";
 
 const FirstProducts = (props) => {
 
+    let [count, setCount] = useState(0);
+
+    const incrQty = () => {
+        setCount(prevState => prevState + 1);
+    }
+
+    const decrQty = () => {
+        (count === 0)
+            ? setCount(prevState => prevState)
+            : setCount(prevState => prevState - 1)
+    }
+
     const addCart = () => {
-
-        /*const buyProduct = () => {
-            const url = BASE_URL + "/cart";
-
-            const obj = {
-                "id": props.id,
-                "img": props.img,
-                "desc": props.desc,
-                "price": props.price,
-                "title": props.title
-            }
-
-            const options = {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify(obj)
-            }
-            fetch(url, options)
-                .then(response => response.json())
-                .then(data => data);
-        }
-
-        buyProduct();*/
-
-        let productsFromLocalStorage = {};
+        let productsFromStorage = {};
         const product = {};
 
         if (localStorage.getItem('cart')) {
-            productsFromLocalStorage = JSON.parse(localStorage.getItem('cart'));
+            productsFromStorage = JSON.parse(localStorage.getItem('cart'));
         }
 
         product[props.id] = {
-            ...props
+            ...props,
+            quantity: count
         }
 
-        localStorage.setItem('cart', JSON.stringify({...productsFromLocalStorage, ...product}));
+        localStorage.setItem('cart', JSON.stringify({...productsFromStorage, ...product}));
+
         toast.success(`${props.title} добавлен(а) в Корзину!`, {
             style: {
                 border: '2px solid #d1db17',
@@ -59,6 +47,7 @@ const FirstProducts = (props) => {
     }
 
     return (
+        <Context.Provider value={props.quantity}>
         <div className={styles.newProduct}>
             <img className={styles.newProductSize} src={props.img} alt=""/>
             <div className={styles.newProductDesc}>
@@ -66,7 +55,11 @@ const FirstProducts = (props) => {
                 <p className={styles.smallFont}>{props.desc}</p>
                 <h4>{props.price}</h4>
                 <div>
-                    <Counter/>
+                    <div className={styles.btnFrame}>
+                        <button className={styles.btnCount} onClick={decrQty}>-</button>
+                        <span>{count}</span>
+                        <button className={styles.btnCount} onClick={incrQty}>+</button>
+                    </div>
                 </div>
                 <div>
                     <CartBtn
@@ -78,6 +71,7 @@ const FirstProducts = (props) => {
                 </div>
             </div>
         </div>
+        </Context.Provider>
     );
 };
 

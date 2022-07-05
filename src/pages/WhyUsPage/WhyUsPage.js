@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styles from "./WhyUsPage.module.css";
 import {BASE_URL} from "../../constants";
 import WhyUsOne from "../../components/WhyUs/WhyUsOne";
+import toast from "react-hot-toast";
 
 const WhyUsPage = () => {
     const [reason, setReason] = useState([]);
@@ -9,8 +10,15 @@ const WhyUsPage = () => {
     const getReason = () => {
         const url = BASE_URL + '/reasons';
         fetch(url)
-            .then(response => response.json())
-            .then(data => setReason(data));
+            .then(response => {
+                if (response.status === 200){
+                    return response.json();
+                } else {
+                    throw new Error(response.status);
+                }
+            })
+            .then(data => setReason(data))
+            .catch(err => toast.error(`Упс, ошибка: ${err.message} в WhyUsPage.js`));
     }
 
     useEffect(getReason, []);

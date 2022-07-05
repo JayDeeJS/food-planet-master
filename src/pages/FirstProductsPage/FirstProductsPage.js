@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
-import styles from "./FirstProductsPage.module.css";
 import {BASE_URL} from "../../constants";
+import styles from "./FirstProductsPage.module.css";
+import toast from "react-hot-toast";
 import FirstProducts from "../../components/FirstProducts/FirstProducts";
 
 const FirstProductsPage = () => {
@@ -10,8 +11,15 @@ const FirstProductsPage = () => {
     const getFirstProducts = () => {
         const url = BASE_URL + '/firstProducts';
         fetch(url)
-            .then(response => response.json())
-            .then(data => setFirstProducts(data));
+            .then(response => {
+                if (response.status === 200){
+                    return response.json();
+                } else {
+                    throw new Error(response.status);
+                }
+            })
+            .then(data => setFirstProducts(data))
+            .catch(err => toast.error(`Упс, ошибка: ${err.message} в FirstProductsPage.js`));
     }
 
     useEffect(getFirstProducts, []);

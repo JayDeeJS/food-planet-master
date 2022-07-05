@@ -40,13 +40,16 @@ const CartPage = () => {
     useEffect(getStorageProducts, []);
 
     const increaseQty = (product) => {
+        let dblPrice = 0;
+        let totalPrice = 0;
+
         if (!product.quantity) {
             product.quantity = 2;
-            let dblPrice = product.price + product.price;
+            dblPrice = product.price + product.price;
         } else {
             let count = product.quantity;
             product.quantity = ++count;
-            let totalPrice = product.price * product.quantity;
+            totalPrice = product.price * product.quantity;
         }
         parseAndSetProducts(product);
     }

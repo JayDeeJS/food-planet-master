@@ -1,35 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from "./SecondProducts.module.css";
 import toast from "react-hot-toast";
-import {Counter} from "../Counter/Counter";
 import CartBtn from "../CartBtn/CartBtn";
 
 const SecondProducts = (props) => {
 
+    let [count, setCount] = useState(0);
+
+    const incrQty = () => {
+        setCount(prevState => prevState + 1);
+    }
+
+    const decrQty = () => {
+        (count === 0)
+            ? setCount(prevState => prevState)
+            : setCount(prevState => prevState - 1)
+    }
+
     const addCart = () => {
-        /*const buyProduct = () => {
-            const url = BASE_URL + "/cart";
-
-            const obj = {
-                "img":props.img,
-                "desc":props.desc,
-                "price":props.price,
-                "title":props.title
-            }
-
-            const options = {
-                method:"POST",
-                headers:{
-                    "Content-type":"application/json"
-                },
-                body:JSON.stringify(obj)
-            }
-            fetch(url, options)
-                .then(response => response.json())
-                .then(data => console.log(data));
-        }
-        buyProduct();*/
-
         let productsFromLocalStorage = {};
         const product = {};
 
@@ -38,9 +26,11 @@ const SecondProducts = (props) => {
         }
 
         product[props.id] = {
-            ...props
+            ...props,
+            quantity: count
         }
         localStorage.setItem('cart', JSON.stringify({...productsFromLocalStorage, ...product}));
+
         toast.success(`${props.title} добавлен(а) в Корзину!`, {
             style: {
                 border: '2px solid #d1db17',
@@ -62,7 +52,11 @@ const SecondProducts = (props) => {
                 <span className={styles.textAlign}>{props.desc}</span>
                 <h4 className={styles.properSpacing}>{props.price}</h4>
                 <div>
-                    <Counter/>
+                    <div className={styles.btnFrame}>
+                        <button className={styles.btnCount} onClick={decrQty}>-</button>
+                        <span>{count}</span>
+                        <button className={styles.btnCount} onClick={incrQty}>+</button>
+                    </div>
                 </div>
                 <div>
                     <CartBtn

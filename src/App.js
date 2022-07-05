@@ -9,7 +9,7 @@ import CartPage from "./pages/CartPage/CartPage";
 
 function App() {
     return (
-        <div >
+        <div>
             <NavPage/>
             <Routes>
                 <Route path="/" element={<MainPage/>}/>
