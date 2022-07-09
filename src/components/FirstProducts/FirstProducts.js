@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import styles from "./FirstProducts.module.css";
-import {Context} from "../../context/context";
 import toast from "react-hot-toast";
 import CartBtn from "../CartBtn/CartBtn";
 
@@ -47,7 +46,6 @@ const FirstProducts = (props) => {
     }
 
     return (
-        <Context.Provider value={props.quantity}>
         <div className={styles.newProduct}>
             <img className={styles.newProductSize} src={props.img} alt=""/>
             <div className={styles.newProductDesc}>
@@ -71,7 +69,6 @@ const FirstProducts = (props) => {
                 </div>
             </div>
         </div>
-        </Context.Provider>
     );
 };
 
