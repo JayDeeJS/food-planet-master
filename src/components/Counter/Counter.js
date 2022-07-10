@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import styles from "../../pages/FirstProductsPage/FirstProductsPage.module.css";
+import {Context} from "../../context/context";
 
 const Counter = () => {
 
-    let [count, setCount] = useState(0);
+    const {count, setCount} = useContext(Context);
 
     const incrQty = () => {
         setCount(prevState => prevState + 1);

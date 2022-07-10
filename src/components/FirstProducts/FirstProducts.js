@@ -1,21 +1,13 @@
 import React, {useState} from 'react';
+import {Context} from "../../context/context";
 import styles from "./FirstProducts.module.css";
 import toast from "react-hot-toast";
 import CartBtn from "../CartBtn/CartBtn";
+import Counter from "../Counter/Counter";
 
 const FirstProducts = (props) => {
 
-    let [count, setCount] = useState(0);
-
-    const incrQty = () => {
-        setCount(prevState => prevState + 1);
-    }
-
-    const decrQty = () => {
-        (count === 0)
-            ? setCount(prevState => prevState)
-            : setCount(prevState => prevState - 1)
-    }
+    let [count, setCount] = useState(1);
 
     const addCart = () => {
         let productsFromStorage = {};
@@ -46,29 +38,29 @@ const FirstProducts = (props) => {
     }
 
     return (
-        <div className={styles.newProduct}>
-            <img className={styles.newProductSize} src={props.img} alt=""/>
-            <div className={styles.newProductDesc}>
-                <h4>{props.title}</h4>
-                <p className={styles.smallFont}>{props.desc}</p>
-                <h4>{props.price}</h4>
-                <div>
-                    <div className={styles.btnFrame}>
-                        <button className={styles.btnCount} onClick={decrQty}>-</button>
-                        <span>{count}</span>
-                        <button className={styles.btnCount} onClick={incrQty}>+</button>
+        <Context.Provider value={{count, setCount}}>
+            <div className={styles.newProduct}>
+                <img className={styles.newProductSize} src={props.img} alt=""/>
+                <div className={styles.newProductDesc}>
+                    <h4>{props.title}</h4>
+                    <p className={styles.smallFont}>{props.desc}</p>
+                    <h4>{props.price}</h4>
+                    <div>
+                        <div className={styles.btnFrame}>
+                            <Counter/>
+                        </div>
+                    </div>
+                    <div>
+                        <CartBtn
+                            addCart={addCart}
+                            id={props.id}
+                            price={props.price}
+                            quantity={props.quantity}
+                        />
                     </div>
                 </div>
-                <div>
-                    <CartBtn
-                        addCart={addCart}
-                        id={props.id}
-                        price={props.price}
-                        quantity={props.quantity}
-                    />
-                </div>
             </div>
-        </div>
+        </Context.Provider>
     );
 };
 

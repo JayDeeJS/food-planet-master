@@ -16,8 +16,11 @@ const index = {
     whyUsReasonFourTitle: 'Доставка',
     whyUsReasonFourDesc: 'Мы быстро доставляем вашу еду по указанному адресу',
     feedbackUserName: 'Сергей',
+    feedbackUserNameTwo: 'Андрей',
     feedbackUserComment: 'Большое спасибо! 5 пицц доставили даже быстрее чем планировалось. Пицца была горячая и всему коллективу понравилась! День Рождения прошел отлично! :)',
-    feedbackCommentDate: '02.07.2020'
+    feedbackUserCommentTwo: 'Отличный сервис. Быстрая доставка, приемлемые цены, широкий выбор. Не думал, что новая сеть фаст-фуда может держать марку и также быть оперативной!',
+    feedbackCommentDate: '02.07.2020',
+    feedbackCommentDateTwo: '15.06.2021'
 }
 
 export default index;

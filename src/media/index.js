@@ -12,6 +12,7 @@ const images = {
     uniqueMenu: require("./uniqueMenu.svg").default,
     location: require("./location.svg").default,
     greyHole: require("./greyHole.png"),
+    blackHole: require("./blackHole.jpg"),
     penIcon: require("./penIcon.svg").default,
     footerLogo: require("./footerLogo.svg").default,
     whitePhoneLogo: require("./whitePhoneLogo.svg").default
