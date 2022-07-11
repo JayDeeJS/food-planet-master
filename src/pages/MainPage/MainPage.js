@@ -6,6 +6,7 @@ import WhyUsPage from "../WhyUsPage/WhyUsPage";
 import FeedbackPage from "../FeedbackPage/FeedbackPage";
 
 const MainPage = () => {
+
     return (
         <div className="body">
             <SubNavPage/>

@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
+import {Context} from "../../context/context";
 import styles from "./CartPage.module.css";
 import toast from "react-hot-toast";
 
 const CartPage = () => {
 
-    const [productsFromStorage, setProductsFromStorage] = useState([]);
+    const {productsFromStorage, setProductsFromStorage} = useContext(Context);
 
     const getStorageProducts = () => {
         let storageData = JSON.parse(localStorage.getItem('cart'));
@@ -72,9 +73,34 @@ const CartPage = () => {
         ? product.price + price
         : price + (product.quantity * product.price), 0)
 
+    const [discount, setDiscount] = useState({
+        discountData: 0
+    })
+
+    const collectData = (event) => {
+        event.preventDefault();
+        if (event.target.coupon.value === ''){
+            event.target.coupon.value = 'Введите цифровое значение!'
+        }
+        setDiscount({
+            discountData: calcTotalPrice / event.target.coupon.value
+        })
+        console.log(discount);
+    }
+
+    const [finalPrice, setFinalPrice] = useState({
+        final: calcTotalPrice
+    })
+
+    const calcFinalPrice = () => {
+        setFinalPrice({
+            final: calcTotalPrice - discount.discountData
+        })
+    }
+
     return (
         <div className={styles.body}>
-            <h1>Корзина</h1>
+            <h1 className={styles.cartTitle}>Корзина</h1>
             <div className={styles.cart}>
                 {
                     productsFromStorage.map((product) => {
@@ -112,13 +138,16 @@ const CartPage = () => {
                                 </div>
                                 <div className={styles.cartCol}>
                                     <h3>Скидка</h3>
-                                    <h3 className={styles.discount}>0%</h3>
+                                    <h3 className={styles.discount}>{!discount.discountData
+                                        ? 0
+                                        : discount.discountData
+                                    } сом</h3>
                                 </div>
                                 <div className={styles.cartCol}>
                                     <h3>Цена</h3>
                                     <h3 className={styles.productText}>{!product.quantity
                                         ? product.price
-                                        : product.price * product.quantity}
+                                        : product.price * product.quantity} сом
                                     </h3>
                                 </div>
                             </div>
@@ -127,8 +156,22 @@ const CartPage = () => {
                 }
             </div>
             <div className={styles.cartFooter}>
-                <h3>Итоговая цена</h3>
-                <span>{calcTotalPrice}</span>
+                <form onSubmit={collectData}>
+                    <h3 className={styles.cartTitleTwo}>Введите код скидочного купона</h3>
+                    <input name="coupon" type="text" placeholder="Код купона" className={styles.discountInput}/>
+                    <button className={styles.discountBtn}>ОК</button>
+                </form>
+                <div className={styles.discountCalc}>
+                    <h3>Ввели код купона? Посчитайте со скидкой!</h3>
+                    <button onClick={calcFinalPrice} className={styles.discountTrigger}>ПОСЧИТАТЬ!</button>
+                </div>
+                <div>
+                    <h3 className={styles.cartTitle}>Итоговая цена</h3>
+                    <span className={styles.cartFinalPrice}>{!finalPrice.final
+                        ? calcTotalPrice || finalPrice.final
+                        : finalPrice.final || finalPrice.final
+                    }</span>
+                </div>
             </div>
         </div>
     );

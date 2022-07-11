@@ -36,7 +36,7 @@ const CartBtn = (props) => {
                 onClick={() => {
                     changeAddBtn();
                     checkProductId();
-                    props.addCart()
+                    props.addCart();
                 }}
                 className={addBtn.style}>{addBtn.title}
             </button>

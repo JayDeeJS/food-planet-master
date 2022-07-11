@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .body{
     width: 100%;
     display: flex;
@@ -6,7 +8,7 @@
 }
 .cart{
     width: 75%;
-    box-shadow: 0 0 5px 5px #6f87d0;
+    box-shadow: 0 0 5px 5px #30cc54;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,8 +40,26 @@
     margin: 20px;
 }
 .cartFooter{
+    display: flex;
+    justify-content: space-evenly;
     width: 75%;
     border: 1px dotted greenyellow;
+}
+.cartTitle{
+    color: #254F4C;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+.cartTitleTwo{
+    color: darkblue;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+.cartFinalPrice{
+    color: blue;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
 }
 .productImg{
     width: 130px;
@@ -66,4 +86,39 @@
 }
 .discount{
     color: green;
+}
+.discountInput{
+    padding: 5px 13px;
+    background-color: lightblue;
+    border-radius: 5px;
+    border-color: mediumpurple;
+    font-style: oblique;
+    width: 200px;
+}
+.discountBtn{
+    padding: 5px;
+    margin-left: 15px;
+    border-radius: 3px;
+    border-color: darkgreen;
+    background-color: lightsalmon;
+    color: #254F4C;
+    font-weight: bold;
+    cursor: pointer;
+}
+.discountCalc{
+    color: darkgreen;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.discountTrigger{
+    padding: 8px;
+    border-radius: 5px;
+    border-color: lightslategrey;
+    background-color: lightgoldenrodyellow;
+    color: darkblue;
+    font-weight: bold;
+    cursor: pointer;
 }

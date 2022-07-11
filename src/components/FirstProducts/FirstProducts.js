@@ -10,6 +10,7 @@ const FirstProducts = (props) => {
     let [count, setCount] = useState(1);
 
     const addCart = () => {
+
         let productsFromStorage = {};
         const product = {};
 

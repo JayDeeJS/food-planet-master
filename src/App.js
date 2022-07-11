@@ -1,36 +1,32 @@
 import React, {useState} from "react";
-import "./App.css";
 import {Routes, Route} from "react-router-dom";
-import {Toaster} from "react-hot-toast";
 import {Context} from "./context/context";
+import {Toaster} from "react-hot-toast";
 import MainPage from "./pages/MainPage/MainPage";
 import NavPage from "./pages/NavPage/NavPage";
 import FooterPage from "./pages/FooterPage/FooterPage";
 import CartPage from "./pages/CartPage/CartPage";
+import "./App.css";
 
 function App() {
-    /*let [count, setCount] = useState(1);
+    const [productsFromStorage, setProductsFromStorage] = useState([]);
 
-    const incrQty = () => {
-        setCount(prevState => prevState + 1);
-    }
-
-    const decrQty = () => {
-        (count === 0)
-            ? setCount(prevState => prevState)
-            : setCount(prevState => prevState - 1)
-    }*/
+    const calcTotalQty = productsFromStorage.reduce((quantity, product) => !product.quantity
+        ? 0
+        : quantity + product.quantity, 0)
 
     return (
-        <>
-            <NavPage/>
+        <Context.Provider value={{productsFromStorage, setProductsFromStorage}}>
+            <NavPage
+                quantity={calcTotalQty}
+            />
             <Routes>
                 <Route path="/" element={<MainPage/>}/>
                 <Route path="/cart" element={<CartPage/>}/>
             </Routes>
             <FooterPage/>
             <Toaster/>
-        </>
+        </Context.Provider>
     )
 }
 

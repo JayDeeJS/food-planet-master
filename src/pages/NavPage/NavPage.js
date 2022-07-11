@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import styles from "./NavPage.module.css";
 import images from "../../media";
 
-const NavPage = () => {
+const NavPage = (props) => {
 
     return (
         <>
@@ -36,7 +36,7 @@ const NavPage = () => {
                                 <div className={styles.navImg2}>
                                     <img src={images.cartLogo} alt="cart logo"/>
                                 </div>
-                                <li>{}</li>
+                                <li>{props.quantity}</li>
                             </NavLink>
                         </ul>
                     </nav>
