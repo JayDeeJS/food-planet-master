@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
 }
 .cart{
     width: 75%;
@@ -43,7 +44,11 @@
     display: flex;
     justify-content: space-evenly;
     width: 75%;
-    border: 1px dotted greenyellow;
+    height: 120px;
+    background-color: lightgoldenrodyellow;
+}
+.cartFooterTwo{
+    width: 75%;
 }
 .cartTitle{
     color: #254F4C;
@@ -100,8 +105,8 @@
     margin-left: 15px;
     border-radius: 3px;
     border-color: darkgreen;
-    background-color: lightsalmon;
-    color: #254F4C;
+    background-color: limegreen;
+    color: darkslategrey;
     font-weight: bold;
     cursor: pointer;
 }
@@ -117,7 +122,7 @@
     padding: 8px;
     border-radius: 5px;
     border-color: lightslategrey;
-    background-color: lightgoldenrodyellow;
+    background-color: lightblue;
     color: darkblue;
     font-weight: bold;
     cursor: pointer;

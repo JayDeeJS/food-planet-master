@@ -1,0 +1,42 @@
+.modalForm{
+    display: flex;
+    flex-direction: column;
+}
+.modalRow{
+    display: flex;
+    justify-content: space-evenly;
+}
+.modalInput{
+    width: 50%;
+    margin: 15px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border-color: #29dd31;
+}
+.modalBtn{
+    width: 54%;
+    margin: 15px;
+    border-radius: 5px;
+    border-color: dodgerblue;
+    background-color: #23e73f;
+    color: darkblue;
+    font-weight: bold;
+    cursor: pointer;
+}
+.confirmationModal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.confirmationMsg{
+    color: darkblue;
+}
+.confirmationBtn{
+    width: 40%;
+    height: 30px;
+    background-color: lightskyblue;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+}
