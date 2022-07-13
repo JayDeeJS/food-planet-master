@@ -1,0 +1,102 @@
+{
+  "subNav": [
+    {
+      "id": 1,
+      "subNavImg": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJ1cmdlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "subNavTitle": "Доставка вкусной еды до 30 минут + напиток в подарок!",
+      "subNavDesc": "Доставим заказ вовремя и можете рассчитывать, что еда будет доставлена всегда горячей и ароматной."
+    }
+  ],
+  "firstProducts": [
+    {
+      "id": 1,
+      "img": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJ1cmdlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "desc": "Булка, котлета, сыр, соленый огурец, лук, помидор, салат айсберг, соус чесночный, соус, гриль, кетчуп, майонез",
+      "price": 200,
+      "title": "Чизбургер"
+    },
+    {
+      "id": 2,
+      "img": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "desc": "Булка, куриная грудка, сыр, свежий огурец, лук, помидор, салат айсберг, соус сырный, кетчуп, майонез",
+      "price": 230,
+      "title": "Роял Чиз"
+    },
+    {
+      "id": 3,
+      "img": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJ1cmdlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "desc": "Булка, котлета, сыр, соленый огурец, лук, помидор, салат айсберг, соус чесночный, соус, гриль, кетчуп, майонез",
+      "price": 200,
+      "title": "Чизбургер"
+    },
+    {
+      "id": 4,
+      "img": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "desc": "Булка, куриная грудка, сыр, свежий огурец, лук, помидор, салат айсберг, соус сырный, кетчуп, майонез",
+      "price": 230,
+      "title": "Роял Чиз"
+    }
+  ],
+  "secondProducts": [
+    {
+      "id": 5,
+      "img": "https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "desc": "Мега сытная пицца с ароматным, пряным, мясным рагу Чили кон карне и сливочным соусом Крема де сальса.",
+      "price": 698,
+      "title": "Пицца Мексиканская"
+    },
+    {
+      "id": 6,
+      "img": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "desc": "Сытная домашняя пицца с соусом барбекю, куриным филе, колбасками, грибами, томатами и маринованными огурчиками.",
+      "price": 748,
+      "title": "Пицца Гасконская"
+    },
+    {
+      "id": 7,
+      "img": "https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "desc": "Мега сытная пицца с ароматным, пряным, мясным рагу Чили кон карне и сливочным соусом Крема де сальса.",
+      "price": 698,
+      "title": "Пицца Мексиканская"
+    },
+    {
+      "id": 8,
+      "img": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "desc": "Сытная домашняя пицца с соусом барбекю, куриным филе, томатами и маринованными огурчиками.",
+      "price": 748,
+      "title": "Пицца Гасконская"
+    }
+  ],
+  "reasons": [
+    {
+      "id": 1,
+      "img": "https://images.unsplash.com/photo-1624984608976-8a7358d25bce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+      "title": "Мгновенная доставка",
+      "desc": "Доставим заказанную вами\n еду за 30 минут + напиток в подарок"
+    },
+    {
+      "id": 2,
+      "img": "https://images.unsplash.com/photo-1518843875459-f738682238a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=842&q=80",
+      "title": "Свежие продукты",
+      "desc": "Вся продукция хранится в хороших условиях тем самым продлевая срок хранения"
+    },
+    {
+      "id": 3,
+      "img": "https://images.unsplash.com/photo-1649471110610-aab3a8f05b21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "title": "Уникальное меню",
+      "desc": "Ежедневно мы обновляем наше \nменю и том числе коктейльное"
+    },
+    {
+      "id": 4,
+      "img": "https://images.unsplash.com/photo-1631617945663-bc6a0f22834e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZGVsaXZlcnklMjBsb2dvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "title": "Доставка",
+      "desc": "Мы быстро доставляем вашу еду по указанному адресу"
+    }
+  ],
+  "cart": [
+    {
+      "id": 1,
+      "title": "test"
+    }
+  ]
+}
