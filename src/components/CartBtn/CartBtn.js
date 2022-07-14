@@ -25,6 +25,8 @@ const CartBtn = (props) => {
         let result = cartData.find(item => item.id === props.id);
         if (result){
             changeAddBtn();
+        } else {
+            return;
         }
     }
 
