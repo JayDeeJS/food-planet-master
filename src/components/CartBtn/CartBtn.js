@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import styles from "./CartBtn.module.css";
-import {BASE_URL} from "../../constants";
-import toast from "react-hot-toast";
 
 const CartBtn = (props) => {
 
@@ -22,20 +20,12 @@ const CartBtn = (props) => {
     const checkProductId = () => {
 
         let cartData = JSON.parse(localStorage.getItem('cart'));
+        cartData = Object.values(cartData);
+        setProductsFromStorage(cartData);
 
-        if (cartData === undefined){
-            const backup = 'https://my-json-server.typicode.com/JayDeeJS/food-deploy-server/backUpProduct';
-            fetch(backup)
-                .then(response => response.json())
-                .then(data => data);
-            cartData = localStorage.setItem('cart', JSON.stringify('backup'))
-        } else {
-            cartData = Object.values(cartData);
-            setProductsFromStorage(cartData);
-            let result = cartData.find(item => item.id === props.id);
-            if (result) {
-                changeAddBtn();
-            }
+        let result = cartData.find(item => item.id === props.id);
+        if (result){
+            changeAddBtn();
         }
     }
 
