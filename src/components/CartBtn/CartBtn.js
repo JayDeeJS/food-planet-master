@@ -18,13 +18,20 @@ const CartBtn = (props) => {
     }
 
     const checkProductId = () => {
+        const backup = {
+            "default":"test"
+        }
         let cartData = JSON.parse(localStorage.getItem('cart'));
-        cartData = Object.values(cartData);
-        setProductsFromStorage(cartData);
 
-        let result = cartData.find(item => item.id === props.id);
-        if (result){
-            changeAddBtn();
+        if (cartData === null){
+            cartData = localStorage.setItem('cart', JSON.stringify(backup))
+        } else {
+            cartData = Object.values(cartData);
+            setProductsFromStorage(cartData);
+            let result = cartData.find(item => item.id === props.id);
+            if (result) {
+                changeAddBtn();
+            }
         }
     }
 
@@ -33,12 +40,12 @@ const CartBtn = (props) => {
     return (
         <>
             <button id={props.id}
-                onClick={() => {
-                    changeAddBtn();
-                    checkProductId();
-                    props.addCart();
-                }}
-                className={addBtn.style}>{addBtn.title}
+                    onClick={() => {
+                        changeAddBtn();
+                        checkProductId();
+                        props.addCart();
+                    }}
+                    className={addBtn.style}>{addBtn.title}
             </button>
         </>
     );
