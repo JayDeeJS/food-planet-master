@@ -19,7 +19,11 @@ const CartBtn = (props) => {
 
     const checkProductId = () => {
         const backup = {
-            "default":"test"
+            "id": 101,
+            "img": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJ1cmdlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+            "desc": "Булка, котлета, сыр, соленый огурец, лук, помидор, салат айсберг, соус чесночный, соус, гриль, кетчуп, майонез",
+            "price": 200,
+            "title": "Чизбургер"
         }
         let cartData = JSON.parse(localStorage.getItem('cart'));
 
