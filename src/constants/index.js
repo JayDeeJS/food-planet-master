@@ -25,4 +25,4 @@ const index = {
 
 export default index;
 
-export const BASE_URL = 'https://my-json-server.typicode.com/JayDeeJS/food-deploy-server';
+export const BASE_URL = 'http://localhost:3001';
